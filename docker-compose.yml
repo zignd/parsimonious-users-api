@@ -1,0 +1,39 @@
+version: "3.8"
+
+services:
+  db:
+    image: postgres:13
+    restart: always
+    environment:
+      POSTGRES_PASSWORD: pass123
+    volumes:
+      - ./data:/opt/data
+
+  app:
+    build:
+      context: .
+    env_file: .env.local
+    ports:
+      - 3000:3000
+
+  test-db:
+    image: postgres:13
+    restart: always
+    environment:
+      POSTGRES_PASSWORD: pass123
+    volumes:
+      - ./data/test:/opt/data
+    ports:
+      - 5432:5432
+  
+  test:
+    build:
+      context: .
+      dockerfile: Dockerfile.test
+    env_file: .env.test
+
+  adminer:
+    image: adminer:4
+    restart: always
+    ports:
+      - 8080:8080

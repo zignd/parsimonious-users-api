@@ -1,0 +1,6 @@
+FROM golang:1.15
+WORKDIR /app
+COPY . .
+RUN go install -v ./...
+
+ENTRYPOINT ["go", "test", "-v", "./..."]
