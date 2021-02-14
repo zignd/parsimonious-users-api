@@ -55,10 +55,3 @@ The application tests were automated to run inside and outside containers. The i
 To run the tests inside containers, you can use `make run-test`. And to run locally (this one requires Go installed), you can use `run-test-local`.
 
 You can clean up the containers created using `make down` as well.
-
-## Regarding the project name
-
-Parsimonious is nothing but a randomly chosen word to uniquely name this repository, but the meaning according online dictionaries is related to "unwillingness to spend". According to Merriam-Webster:
-
-> 1 : exhibiting or marked by parsimony especially : frugal to the point of stinginess.
-> 2 : sparing, restrained.
